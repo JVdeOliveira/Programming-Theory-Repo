@@ -440,7 +440,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1cdafc194bb76f4439dfa405104979d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -673,7 +673,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932336885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: -10}
+  m_LocalPosition: {x: -2, y: 0, z: -10.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -687,21 +687,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 926007269525821343, guid: b88efb7cf43417748bc5bf9b298accd6,
-        type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 711441565, guid: b88efb7cf43417748bc5bf9b298accd6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 711441565, guid: b88efb7cf43417748bc5bf9b298accd6, type: 3}
+      propertyPath: m_LocalRotation.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 926007269525821343, guid: b88efb7cf43417748bc5bf9b298accd6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8fb684998512f01489c1c148e42f4bc9, type: 2}
-    - target: {fileID: 926007269525821343, guid: b88efb7cf43417748bc5bf9b298accd6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: bca8bce9d1e0ce842abc865713a21ba1, type: 2}
+    - target: {fileID: 711441565, guid: b88efb7cf43417748bc5bf9b298accd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284563936, guid: b88efb7cf43417748bc5bf9b298accd6, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284563936, guid: b88efb7cf43417748bc5bf9b298accd6, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284563936, guid: b88efb7cf43417748bc5bf9b298accd6, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284563936, guid: b88efb7cf43417748bc5bf9b298accd6, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190335
+      objectReference: {fileID: 0}
     - target: {fileID: 5510816582788827653, guid: b88efb7cf43417748bc5bf9b298accd6,
         type: 3}
       propertyPath: m_RootOrder
@@ -720,7 +733,7 @@ PrefabInstance:
     - target: {fileID: 5510816582788827653, guid: b88efb7cf43417748bc5bf9b298accd6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.048017
+      value: -12.298017
       objectReference: {fileID: 0}
     - target: {fileID: 5510816582788827653, guid: b88efb7cf43417748bc5bf9b298accd6,
         type: 3}

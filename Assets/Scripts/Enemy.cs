@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -23,12 +24,12 @@ public class Enemy : MonoBehaviour
     }
 
     #region Events
-    private void MoveInPath_OnFinishedPath(object sender, System.EventArgs e)
+    private void MoveInPath_OnFinishedPath(object sender, EventArgs e)
     {
         Destroy(gameObject);
     }
 
-    private void HealthSystem_OnDeaded(object sender, System.EventArgs e)
+    private void HealthSystem_OnDeaded(object sender, EventArgs e)
     {
         Destroy(gameObject);
     }

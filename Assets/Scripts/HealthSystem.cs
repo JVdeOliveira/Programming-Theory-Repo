@@ -11,8 +11,8 @@ public class HealthSystem
     public int Health => m_health;
     public int MaxHealth => m_maxHealth;
 
+    public event EventHandler<HealthSystemEventArgs> OnHealthChanged;
     public event EventHandler OnDeaded;
-    public event EventHandler OnHealthChanged;
 
     public HealthSystem(int maxHealth)
     {
@@ -26,7 +26,7 @@ public class HealthSystem
 
         m_health -= amountDamage;
 
-        OnHealthChanged?.Invoke(this, EventArgs.Empty);
+        OnHealthChanged?.Invoke(this, new HealthSystemEventArgs(m_health, m_maxHealth));
 
         if (m_health <= 0) Dead();
     }
@@ -48,7 +48,7 @@ public class HealthSystem
         OnDeaded?.Invoke(this, new HealthSystemEventArgs(m_health, m_maxHealth));
     }
 
-    private class HealthSystemEventArgs : EventArgs
+    public class HealthSystemEventArgs : EventArgs
     {
         public int Health { get; private set; }
         public int MaxHealth { get; private set; }
