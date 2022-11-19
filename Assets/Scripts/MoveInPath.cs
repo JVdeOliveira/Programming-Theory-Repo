@@ -38,7 +38,7 @@ public class MoveInPath : MonoBehaviour
     {
         if (!Path.Instance) return;
 
-        if (m_currentPointIndex < Path.Instance.Points.Count)
+        if (m_currentPointIndex < Path.Instance.Points.Count - 1)
         {
             m_currentPointIndex++;
             m_currentPointPosition = Path.Instance.GetPoint(m_currentPointIndex).position;
