@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     #region Events
     private void MoveInPath_OnFinishedPath(object sender, EventArgs e)
     {
-        Destroy(gameObject);
+        m_healthSystem.Dead();
     }
 
     private void HealthSystem_OnDeaded(object sender, EventArgs e)
