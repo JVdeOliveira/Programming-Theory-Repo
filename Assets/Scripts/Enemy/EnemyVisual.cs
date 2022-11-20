@@ -16,5 +16,7 @@ public class EnemyVisual : MonoBehaviour
         var scale = m_healthBar.localScale;
         scale.x = e.Health / (float)e.MaxHealth;
         m_healthBar.localScale = scale;
+
+        Debug.Log("A");
     }
 }

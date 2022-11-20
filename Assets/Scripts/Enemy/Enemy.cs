@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     private MoveInPath m_moveInPath;
     private HealthSystem m_healthSystem;
 
+    [SerializeField] private float m_height;
     [SerializeField] private float m_speed;
     [SerializeField] private int m_health;
 
@@ -15,6 +16,15 @@ public class Enemy : MonoBehaviour
     {
         m_moveInPath = GetComponent<MoveInPath>();
         m_healthSystem = new HealthSystem(m_health);
+        
+        SetHeight();
+    }
+
+    private void SetHeight()
+    {
+        var position = transform.position;
+        position.y = m_height;
+        transform.position = position;
     }
 
     private void Start()

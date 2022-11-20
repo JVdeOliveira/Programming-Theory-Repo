@@ -316,7 +316,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167b18c563cedd04fa7c6d90ba9f0a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemieList: []
+  m_enemieList:
+  - {fileID: 5510816582788827675, guid: b88efb7cf43417748bc5bf9b298accd6, type: 3}
+  m_maxSpawnTime: 1
+  startEnemyCount: 1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

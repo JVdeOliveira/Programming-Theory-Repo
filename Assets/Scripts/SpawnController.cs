@@ -45,7 +45,7 @@ public class SpawnController : MonoBehaviour
             }
 
             var spawnTime = Random.Range(m_maxSpawnTime / m_wave, m_maxSpawnTime);
-            var minSpawnTime = .25f;
+            var minSpawnTime = .5f;
 
             if (spawnTime < minSpawnTime) spawnTime = minSpawnTime;
 

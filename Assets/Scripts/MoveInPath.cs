@@ -23,7 +23,7 @@ public class MoveInPath : MonoBehaviour
 
     public void Move(float speed)
     {
-        var directionTarget = (m_currentPointPosition - transform.position).normalized;
+        var directionTarget = (m_currentPointPosition - GetPositionIgnoreY(transform.position)).normalized;
         transform.position += speed * Time.deltaTime * directionTarget;
     }
 
@@ -31,7 +31,7 @@ public class MoveInPath : MonoBehaviour
     {
         var stoppingDistance = .1f;
 
-        return Vector3.Distance(transform.position, m_currentPointPosition) < stoppingDistance;
+        return Vector3.Distance(GetPositionIgnoreY(transform.position), m_currentPointPosition) < stoppingDistance;
     }
 
     private void UpdateCurrentPointPosition()
@@ -47,5 +47,12 @@ public class MoveInPath : MonoBehaviour
         {
             OnFinishedPath?.Invoke(this, EventArgs.Empty);
         }
+    }
+
+    private Vector3 GetPositionIgnoreY(Vector3 position)
+    {
+        var positionIgnoreY = position;
+        positionIgnoreY.y = 0;
+        return positionIgnoreY;
     }
 }
