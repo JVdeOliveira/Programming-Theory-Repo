@@ -7,7 +7,7 @@ public class EndGameTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneManager.sceneCount);
         }
     }
 }
