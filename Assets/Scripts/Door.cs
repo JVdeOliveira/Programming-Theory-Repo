@@ -13,7 +13,12 @@ public class Door : Interactable
 
     public override void Interact()
     {
-        const string OPEN = "Open";
-        animator.SetTrigger(OPEN);
+        Player player = FindObjectOfType<Player>();
+
+        if (player.HaveKey)
+        {
+            const string OPEN = "Open";
+            animator.SetTrigger(OPEN);
+        }
     }
 }

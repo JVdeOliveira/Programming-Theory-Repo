@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LightButton : Interactable // INHERITANCE
 {
     protected Animator animator;
-    [SerializeField] private GameObject _light;
+    [SerializeField] private List<GameObject> _lights;
 
     private void Awake()
     {
@@ -12,7 +13,10 @@ public class LightButton : Interactable // INHERITANCE
 
     public override void Interact()
     {
-        _light.SetActive(!_light.activeSelf);
+        foreach (var light in _lights)
+        {
+            light.SetActive(!light.activeSelf);
+        }
 
         const string USE_BUTTON = "UseButton";
         animator.SetTrigger(USE_BUTTON);

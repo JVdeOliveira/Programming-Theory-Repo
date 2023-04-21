@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     private NavMeshAgent _agent;
     private Interactable _targetInteractable;
 
+    public bool HaveKey {  get; set; }
+
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
