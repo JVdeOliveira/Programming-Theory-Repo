@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Key : Interactable
 {
-    public override void Interact()
+    public override void Interact(object whoInteracted)
     {
-        Player player = FindObjectOfType<Player>();
+        if (whoInteracted is not Player player)
+        {
+            return;
+        }
+        
         player.HaveKey = true;
-
         Destroy(gameObject);
     }
 }

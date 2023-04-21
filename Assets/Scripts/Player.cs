@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
         _agent.isStopped = true;
 
-        _targetInteractable.Interact();
+        _targetInteractable.Interact(this);
         _targetInteractable = null;
 
         return true;

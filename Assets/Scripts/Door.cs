@@ -11,9 +11,13 @@ public class Door : Interactable
         animator = GetComponent<Animator>();
     }
 
-    public override void Interact()
+    // ABSTRACTION
+    public override void Interact(object whoInteracted)
     {
-        Player player = FindObjectOfType<Player>();
+        if (whoInteracted is not Player player)
+        {
+            return;
+        }
 
         if (player.HaveKey)
         {
