@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : Interactable
 {
-    private Animator _animator;
+    protected Animator animator;
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
-    public void Open()
+    public override void Interact()
     {
         const string OPEN = "Open";
-        _animator.SetTrigger(OPEN);
+        animator.SetTrigger(OPEN);
     }
 }

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -8,7 +5,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private NavMeshAgent _agent;
-    private Door _target;
+    private Interactable _targetInteractable;
 
     private void Awake()
     {
@@ -19,7 +16,7 @@ public class Player : MonoBehaviour
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            if (TryMoveToDoor())
+            if (TryMoveToInteract())
             {
                 return;
             }
@@ -30,7 +27,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        TryOpenDoor();
+        TryInteract();
     }
 
     private void MoveTo(Vector3 destination)
@@ -54,7 +51,7 @@ public class Player : MonoBehaviour
         return true;
     }
 
-    private bool TryMoveToDoor()
+    private bool TryMoveToInteract()
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (!Physics.Raycast(ray, out RaycastHit hitInfo, Camera.main.farClipPlane))
@@ -62,32 +59,36 @@ public class Player : MonoBehaviour
             return false;
         }
 
-        if (!hitInfo.transform.TryGetComponent(out Door door))
+        if (!hitInfo.transform.TryGetComponent(out Interactable interactable))
         {
-            _target = null;
+            _targetInteractable = null;
             return false;
         }
 
-        _target = door;
+        _targetInteractable = interactable;
         MoveTo(hitInfo.transform.position);
         
         return true;
     }
 
-    private bool TryOpenDoor()
+    private bool TryInteract()
     {
-        if (_target == null)
+        if (_targetInteractable == null)
         {
             return false;
         }
 
         float minDistanceToInteract = 2f;
-        if (Vector3.Distance(transform.position, _target.transform.position) > minDistanceToInteract)
+        if (Vector3.Distance(transform.position, _targetInteractable.transform.position) > minDistanceToInteract)
         {
             return false;
         }
 
-        _target.Open();
+        _agent.isStopped = true;
+
+        _targetInteractable.Interact();
+        _targetInteractable = null;
+
         return true;
     }
 }
